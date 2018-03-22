@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>Zxhua Z</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/headerBg/headerBg_whiteHuzi.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header/header_Ais.jpg" ondragstart="return false;"></div>
+    <p>ZxhuaDr</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/Zxhua" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">3</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2016/12/">December 2016<span class="archive-count">2</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/hook/">hook<span class="category-count">2</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/view/">view<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/doc/reflection-one.jpg)" >
+  <h2>java基础之反射</h2>
+    
+  <p>作者:ZxhuaDr &nbsp&nbsp 发布于:<time datetime="2017-04-28T07:23:48.000Z">
+          2017-04-28
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p>最初是打算写一篇关于反射的博客，不过发现网上有很多类似文章所以就不再多余去写了。感兴趣的可以自行去网上搜索，这里我们直接从开始着手hook Android系统的AMS。  </p>
+</blockquote>
+<p>首先我们来看一下activity的启动过程：<br>再启动activity的时候会调用startActivity，那么我们就从startActivity看起,这里我们以API25为例，通过追踪发现最后调用了android.app.Activity的startActivity方法：<br><img src="\images\doc\startActivity\startactivity.png" alt=""><br>我们接着跟进，发现经过一连串的调用最后调用到了startActivityForResult()<br><img src="\images\doc\startActivity\startactivity2.png" alt=""><br><img src="\images\doc\startActivity\startactivity4.png" alt=""><br>这里我们可以看到有一个针对mParent的if判断，那么这个mParent是什么呢？我们跟过去看一下，<br><img src="\images\doc\startActivity\startactivity5.png" alt=""><br>这个没Parent其实也是一个Activity，它是在ActivityManager的startActivityNow()进行了赋值，具体的调用时通过LocalActivityManager的moveToState()方法，然而这个类已经被废弃了，在我们启动activity的时候这个mParent一直都是null的。<br>（PS：其实也有不是null的时候，跟踪源码的时候发现TabActivity用到了这个LocalActivityManager，介于基本没有使用TabActivity的应用场景所以这里我们就暂且认为mParent是null吧。感兴趣的同学可以自行研究一下这里就不过多赘述啦。）<br>所以启动activity的代码就是在这个代码片段中，其中的核心启动代码就是Instrumentation中的execStartActivity()。<br><img src="\images\doc\startActivity\startactivity6.png" alt=""><br>mInstrumentation是Activity的一个成员变量,通过查看源码发现下面这个流程是比较关键的地方<br><img src="\images\doc\startActivity\startactivity7.png" alt=""><br><img src="\images\doc\startActivity\startactivity8.png" alt=""><br>先看一下checkStartActivityResult这个方法，这里面主要是检测activity的各种启动状态，</p>
+
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2017/04/28/hook-proxy/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  Zxhua Z</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>Zxhua Z</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/headerBg/headerBg_whiteHuzi.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header/header_Ais.jpg" ondragstart="return false;"></div>
+    <p>ZxhuaDr</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/Zxhua" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">3</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2016/12/">December 2016<span class="archive-count">2</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/hook/">hook<span class="category-count">2</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/view/">view<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/doc/timg.jpg)" >
+  <h2>自定义VIew绘制顺序</h2>
+    
+  <p>作者:ZxhuaDr &nbsp&nbsp 发布于:<time datetime="2017-04-21T02:41:30.000Z">
+          2017-04-21
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p>不久前接到一个需要动态在所有控件之上绘制Bitmap的需求，所以接触了一下视图的绘制顺序。特此记录一下。</p>
+</blockquote>
+<p>提到绘制，相信大家第一反应想到的可能就是onDraw()了。不过在View中onDraw()并不是唯一的绘制方法,一个完整的绘制过程会依次经过以下几个内容：</p>
+<p>1.背景                          drawBackground()<br>2.主体                          onDraw()<br>3.子View                        dispatchDraw()<br>4.滑动边缘渐变和滚动条以及前景  onDrawForeground() </p>
+<h3 id="drawBackground"><a href="#drawBackground" class="headerlink" title="drawBackground()"></a>drawBackground()</h3><p>这个方法主要是对背景进行绘制，私有方法无法重写。</p>
+<h3 id="onDraw"><a href="#onDraw" class="headerlink" title="onDraw()"></a>onDraw()</h3><p>自定义View时使用频率较高的一个方法，主要是对控件的主体内容进行绘制。重写该方法时，有些同学可能会纠结绘制代码要写在super.Draw()上面还是下面，如果你继承的是View的话写在上面还是下面对于绘制效果是没有丝毫影响的，因为源码中onDraw()只是一个空实现。</p>
+<p> `  /**</p>
+<pre><code> * Implement this to do your drawing.
+ *
+ * @param canvas the canvas on which the background will be drawn
+ */ `
+
+protected void onDraw(Canvas canvas) {
+} 
+</code></pre><p>而有些时候可能需要在已有控件的基础上进行扩展，例如需要在ImageView中添加一个小图标，这个时候如果绘制代码写在了super上面，那么我们所绘制的内容会被覆盖无法显示。所以绘制代码写在super上面还是下面具体还是要根据需求和实现效果来确定。值得注意的是，在ViewGroup中默认是不会执行onDraw()方法的，需要调用setWillNotDraw(false)或者手动为ViewGroup设置一个背景色之后，onDraw才会被调用。</p>
+<h3 id="dispatchDraw"><a href="#dispatchDraw" class="headerlink" title="dispatchDraw()"></a>dispatchDraw()</h3><p>dispatchDraw()是对子view进行绘制的方法，在onDraw()之后被调用。绘制代码写在super.dispatchDraw()之前，绘制效果会被子view所覆盖。而写在之后，绘制内容则会悬浮的子view之上。</p>
+<h3 id="onDrawForeground"><a href="#onDrawForeground" class="headerlink" title="onDrawForeground()"></a>onDrawForeground()</h3><blockquote>
+<p>该方法在API 23 才被引入，使用时需确认minSDK<br>。如果低于23 会木有效果哦。</p>
+</blockquote>
+<p>方法执行在dispatchDraw()之后，应用比较多的是为控件设置蒙版效果。绘制代码写在super之前或者之后的效果与前两个方法类似，这里不再赘述。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>直接附上一张表，比较直观一些。</p>
+<table>
+<thead>
+<tr>
+<th>重写方法</th>
+<th style="text-align:center">绘制代码位置</th>
+<th style="text-align:right">绘制内容出现的位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onDraw()</td>
+<td style="text-align:center">super.onDraw()之前</td>
+<td style="text-align:right">背景与主体之间</td>
+</tr>
+<tr>
+<td>————</td>
+<td style="text-align:center">super.onDraw()之后</td>
+<td style="text-align:right">主体与子view之间</td>
+</tr>
+<tr>
+<td>dispatchDraw()</td>
+<td style="text-align:center">super.dispatchDraw()之前</td>
+<td style="text-align:right">主体与子view之间</td>
+</tr>
+<tr>
+<td>————</td>
+<td style="text-align:center">super.dispatchDraw()之后</td>
+<td style="text-align:right">子view与前景之间</td>
+</tr>
+<tr>
+<td>onDrawForeground()</td>
+<td style="text-align:center">super.onDrawForeground()之前</td>
+<td style="text-align:right">子view与前景之间</td>
+</tr>
+<tr>
+<td>————-</td>
+<td style="text-align:center">super.onDrawForeground()之后</td>
+<td style="text-align:right">前景之前</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2017/04/28/hook-proxy/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2016/12/28/教你偷懒之Android模板/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#drawBackground"><span class="post-toc-number">1.</span> <span class="post-toc-text">drawBackground()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onDraw"><span class="post-toc-number">2.</span> <span class="post-toc-text">onDraw()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dispatchDraw"><span class="post-toc-number">3.</span> <span class="post-toc-text">dispatchDraw()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onDrawForeground"><span class="post-toc-number">4.</span> <span class="post-toc-text">onDrawForeground()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number"></span> <span class="post-toc-text">总结</span></a>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  Zxhua Z</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>

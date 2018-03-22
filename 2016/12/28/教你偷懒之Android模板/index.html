@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>Zxhua Z</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/headerBg/headerBg_whiteHuzi.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header/header_Ais.jpg" ondragstart="return false;"></div>
+    <p>ZxhuaDr</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/Zxhua" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">3</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2016/12/">December 2016<span class="archive-count">2</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/hook/">hook<span class="category-count">2</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/view/">view<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-15.png)" >
+  <h2>教你偷懒之Android模板</h2>
+    
+  <p>作者:ZxhuaDr &nbsp&nbsp 发布于:<time datetime="2016-12-28T06:21:36.000Z">
+          2016-12-28
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <h1 id="Android-Template"><a href="#Android-Template" class="headerlink" title="Android Template"></a>Android Template</h1><p>话接上片博客，直接进入正题–Android Studio Template。 对于Android模板我可以拍胸脯的说，只要是使用studio的人无论你知不知道这个东西，你都使用过。如果你不信，那么咱们用事实说话，请看大屏幕…..<br><img src="\images\doc\template\template1.png" alt=""><br>怎么样，眼不眼熟。 是的没有错，这就是Android studio Template 的初次登场。Android Studio Template 依靠 FreeMarker 引擎，将事先定义好的模板文件生成我们所需的 class 文件、layout 文件等等，可以极大减少样板式代码的编写。<br>打开studio的安装目录，Windows环境下模板文件夹的位置在这个路径上plugins\android\lib\templates，可以看到AndroidStudio默认已经实现了一些模板了。<br><img src="\images\doc\template\template2.png" alt=""><br>以EmptyActivity模板为例，我们来简单了解一下各个文件的功能，然后在其基础上定义一个我们自己的模板。<br><img src="\images\doc\template\template3.png" alt=""><br>从图中我们可以看到，模板中主要包含globals.xml.ftl、recipe.xml.ftl、template.xml和root文件夹。  </p>
+<h3 id="template-xml"><a href="#template-xml" class="headerlink" title="template.xml"></a>template.xml</h3><p>打开template.xml，可以看到如下内容：<br><img src="\images\doc\template\template4.png" alt=""><br>我们可以看到template.xml是整个模板的定义，从模板名称到模板分类再到模板参数都在这里定义，功能有点像 Android 项目中的 AndroidManifest.xml。下面详细介绍它的主要内容。  </p>
+<ol>
+<li>template 标签，整个 xml 的根节点，其中 name属性为模板名称，description属性为模板的描述。  </li>
+<li>category标签，定义了模板所属的分类，即图四中的分类列表中的分类，分类名一样的模板会被归纳到同一目录下。  </li>
+<li>parameter 标签，定义了模板输入弹窗中的输入参数，每个 parameter 为一行。其中：id 属性为参数唯一标识，我们可以在代码中通过 id来使用该参数。  </li>
+<li>name 属性为参数名称，显示在输入控件的前面或后面。  </li>
+<li>type属性为参数类型，根据该属性和constraints属性的值综合比较后参数会被渲染成不同的输入形式，比如 string 类型会显示输入框，而 boolean类型会显示一个选择框。  </li>
+<li>constraints属性为输入约束，常见的有class，代表类名；layout代表布局名；package 代表包路径； unique则是不能与现有的重复；nonemptye表示不能为空。  </li>
+<li>suggest 和 default标签，前者是建议名称，后者是默认名称，前者优先级高于后者。  </li>
+<li>help属性是参数输入提示，当该参数获取焦点后，对应的帮助信息会显示在对话框上。  </li>
+<li>thumbs标签定义了该目标的缩略图，这也就是template_blank_activity.png文件的作用了。</li>
+<li>globals标签指定了 global 文件，具体用途下文会具体说明。  </li>
+<li>execute标签，跟字面上的意思一样，执行 recipe.xml.ftl文件的内容，将模板文件生成具体的可用文件。  <h3 id="global-xml-ftl"><a href="#global-xml-ftl" class="headerlink" title="global.xml.ftl"></a>global.xml.ftl</h3>接下来我们看一下global.xml.ftl<br><img src="\images\doc\template\template5.png" alt=""><br>整个文件很简单，用 global 标签定义了一系列的全局参数（这里的全局是指可以在其他模板文件中使用它们）供具体的模板文件使用，id为唯一标识，type为类型，value为参数值。     <h3 id="SimpleActivity-java-ftl"><a href="#SimpleActivity-java-ftl" class="headerlink" title="SimpleActivity.java.ftl"></a>SimpleActivity.java.ftl</h3>现在我们来看一下root文件夹下的两个文件SimpleActivity.java.ftl和SimpleActivity.kt.ftl<br><img src="\images\doc\template\template7.png" alt=""><br>SimpleActivity.java.ftl:<br><img src="\images\doc\template\template8.png" alt=""><br>SimpleActivity.kt.ftl:<br><img src="\images\doc\template\template9.png" alt=""><br>代码很简单，可以看出这就是我们的模板代码了，两个文件分别是java和kotlin的模板，最后就将以这个格式生成我们想要的文件。相应的，我如果要自定义模板的话，也是将写好的ftl文件放在这个路径下。<br>代码中通过&lt;#include&gt;标签引入了两个common文件夹下的两个通用配置，感兴趣的同学可以自行点击查看一下。这里就不过多介绍。<br>在文章的开篇我们就提到，Template是依靠FreeMarker引擎的，那么我们定义的模板又是怎么通过FreeMarker生成对应的文件的呢？答案就在recipe.xml.ftl中。<h3 id="recipe-xml-ftl"><a href="#recipe-xml-ftl" class="headerlink" title="recipe.xml.ftl"></a>recipe.xml.ftl</h3>直接上代码：<br><img src="\images\doc\template\template6.png" alt=""><br>首先，&lt;#include&gt;标签那行表示包含了 recipe_manifest.xml.ftl 文件的内容，打开对应文件后会发现里面是 <merge> 标签，作用是将定义的 manifest.xml.ftl 文件转化为 manifest.xml后与项目中的 AndroidManifest.xml 文件合并（可以参考安卓开发中 xml 文件中的 merge 标签）。<br>也就是通过 merge 标签，我们可以自定义一个同名文件，然后与项目中的文件合并。这里是完成了 Activity 在 AndroidManifest.xml 文件中注册的工作。<br>然后下面的 &lt;#if&gt;标签代表的含义相信大家可以猜测出来。形如&lt;#if condition&gt; &lt;/#if&gt;，是 freeMarker 模板中的if语句，前后成对出现，condition常见的有 boolean、var == “content”(判断变量的值)、var??（判断是否为空）等等。<br>有 if 当然少不了 else，形如&lt;#if condition&gt; &lt;#else&gt; &lt;/#if&gt;。<br>instantiate 标签是 recipe.xml.ftl 文件的核心标签，它的作用是将 from 属性的 ftl 文件转化为 to 属性的文件。例如文件中就是将 SimpleActivity.java.ftl 文件转化为对应包下的 ${activityClass}.java 文件。（这里的 ${activityClass}是模板变量的表示方法，activityClass 变量由上文中的 template.xml定义，最后会被它的值填充）<br>下面我就开始着手自定义个模板吧。<h3 id="customActivityTemplate"><a href="#customActivityTemplate" class="headerlink" title="customActivityTemplate"></a>customActivityTemplate</h3>先确定好我们预期要生成的代码<br>Activity：<br><pre><br>package code.zxhua.aptdemo;<br>import android.os.Bundle;<br>import android.support.v7.app.AppCompatActivity;<br>import code.zxhua.app_annation.ActivityMap;<br>@ActivityMap(value = “主页面”)<br>public class MainActivity extends AppCompatActivity {<br>@Override<br>protected void onCreate(Bundle savedInstanceState) {<pre><code>super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+</code></pre>}<br>}<br></pre><br>Fragment：<br><pre><br>package code.zxhua.aptdemo;<br>import android.os.Bundle;<br>import android.support.annotation.Nullable;<br>import android.support.v4.app.Fragment;<br>import android.view.LayoutInflater;<br>import android.view.View;<br>import android.view.ViewGroup;<br>public class PageNameFragment extends Fragment {<br>@Nullable<br>@Override<br>public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {<pre><code>View view = inflater.inflate(R.layout.fragment_pagename, null);
+return view;
+</code></pre>}<br>}<br></pre><br>代码很简单，需要动态生成的只有两项，一个是Activity的名称，一个是value对应的页面名称。</merge></li>
+</ol>
+<h4 id="第一步-准备模板所需文件"><a href="#第一步-准备模板所需文件" class="headerlink" title="第一步 准备模板所需文件"></a>第一步 准备模板所需文件</h4><p>因为我们定制的模板比较简答，貌似只比EmptyActivity的模板多一个value字段，所以我们直接复制一份EmptyActivity的模板，重命名为PageNameEmptyActivity。<br><img src="\images\doc\template\template10.png" alt=""> </p>
+<h4 id="第二步-配置模板参数"><a href="#第二步-配置模板参数" class="headerlink" title="第二步 配置模板参数"></a>第二步 配置模板参数</h4><p>在template中添加<parameter>标签，定义PageName参数，修改template节点的name属性为我们自己的名字PageName Activity。为了方便区分，把category也修改一下。代码如下：<br>template.xml  </parameter></p>
+<pre>
+    <template format="5" revision="5" name="PageName Activity" minapi="9" minbuildapi="14" description="Creates a new empty activity">
+    <category value="PageName">
+    <formfactor value="Mobile">
+    <parameter id="instantAppActivityHost" name="Instant App URL Host" type="string" suggest="${companyDomain}" default="instantapp.example.com" visibility="isInstantApp!false" help="The domain to use in the Instant App route for this activity">
+    <parameter id="instantAppActivityRouteType" name="Instant App URL Route Type" type="enum" default="pathPattern" visibility="isInstantApp!false" help="The type of route to use in the Instant App route for this activity">
+        <option id="path">Path</option>
+        <option id="pathPrefix">Path Prefix</option>
+        <option id="pathPattern">Path Pattern</option>
+    </parameter>
+    <parameter id="instantAppActivityRoute" name="Instant App URL Route" type="string" default="/.*" visibility="isInstantApp!false" help="The route to use in the Instant App route for this activity">
+    <parameter id="activityClass" name="Activity Name" type="string" constraints="class|unique|nonempty" suggest="${layoutToActivity(layoutName)}" default="MainActivity" help="The name of the activity class to create">
+    <parameter id="pageName" name="Page Name" type="string" constraints="class|unique|nonempty" default="PageName" help="The name of the activity class to create">
+    <parameter id="fragmentClass" name="Fragment Name" type="string" constraints="class|unique|nonempty" default="MainFragment" help="The name of the fragment class to create">
+    <parameter id="generateLayout" name="Generate Layout File" type="boolean" default="true" help="If true, a layout file will be generated">
+    <parameter id="layoutName" name="Layout Name" type="string" constraints="layout|unique|nonempty" suggest="${activityToLayout(activityClass)}" default="activity_main" visibility="generateLayout" help="The name of the layout to create for the activity">
+    <parameter id="fragmentLayout" name="fragment layout  Name" type="string" constraints="layout|unique|nonempty" default="fragment_main" visibility="generateLayout" help="The name of the layout to create for the fragment">
+    <parameter id="isLauncher" name="Launcher Activity" type="boolean" default="false" help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher">
+    <parameter id="backwardsCompatibility" name="Backwards Compatibility (AppCompat)" type="boolean" default="true" help="If false, this activity base class will be Activity instead of AppCompatActivity">
+    <parameter id="packageName" name="Package name" type="string" constraints="package" default="com.mycompany.myapp">
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+    <globals file="globals.xml.ftl">
+    <execute file="recipe.xml.ftl">
+    </execute></globals></parameter></parameter></parameter></parameter></parameter></parameter></parameter></parameter></parameter></parameter></parameter></formfactor></category></template>
+</pre>  
+
+<h4 id="第三步-修改模板"><a href="#第三步-修改模板" class="headerlink" title="第三步 修改模板"></a>第三步 修改模板</h4><pre>
+package ${packageName};
+import ${superClassFqcn};
+import android.os.Bundle;
+import code.zxhua.app_annation.ActivityMap;
+<#if includecppsupport!false="">
+import android.widget.TextView;
+</#if>
+@ActivityMap(value = "${pageName}")
+public class ${activityClass} extends ${superClass} {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+<#if generatelayout="">
+        setContentView(R.layout.${layoutName});
+</#if>
+<#include "..="" ..="" common="" jni_code_usage.java.ftl"="">
+    }
+<#include "..="" ..="" common="" jni_code_snippet.java.ftl"="">
+}
+</#include></#include></pre> 
+<pre>
+package code.zxhua.aptdemo;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+public class ${fragmentClass} extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.${fragmentLayout}, null);
+        return view;
+    }
+}
+</pre> 
+
+<p>fragment layout :  </p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;android.support.constraint.ConstraintLayout
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+&lt;#if hasAppBar &amp;&amp; appBarLayoutName??&gt;
+app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;
+tools:showIn=&quot;@layout/${appBarLayoutName}&quot;
+&lt;/#if&gt;
+tools:context=&quot;${packageName}.${fragmentClass}&quot;&gt;
+
+&lt;#if isNewProject!false&gt;
+&lt;TextView
+&lt;#if includeCppSupport!false&gt;
+    android:id=&quot;@+id/sample_text&quot;
+&lt;/#if&gt;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;Hello World!&quot;
+    app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
+    app:layout_constraintLeft_toLeftOf=&quot;parent&quot;
+    app:layout_constraintRight_toRightOf=&quot;parent&quot;
+    app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;
+
+&lt;/#if&gt;
+&lt;/android.support.constraint.ConstraintLayout&gt;
+</code></pre><p>模板文件准备就绪后，让如对应的路径下，layout文件放在root/res下,java文件放在root/src/app_package路径下。如果没有对应的文件夹就自行创建一下  </p>
+<h4 id="第四步-修改recipe-xml-ftl"><a href="#第四步-修改recipe-xml-ftl" class="headerlink" title="第四步 修改recipe.xml.ftl"></a>第四步 修改recipe.xml.ftl</h4><pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;#import &quot;root://activities/common/kotlin_macros.ftl&quot; as kt&gt;
+&lt;recipe&gt;
+&lt;#include &quot;../common/recipe_manifest.xml.ftl&quot; /&gt;
+&lt;@kt.addAllKotlinDependencies /&gt;
+
+&lt;#if generateLayout&gt;
+&lt;#include &quot;../common/recipe_simple.xml.ftl&quot; /&gt;
+&lt;open file=&quot;${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml&quot; /&gt;
+&lt;/#if&gt;
+&lt;instantiate from=&quot;root/res/fragment.xml.ftl&quot;
+    to=&quot;${escapeXmlAttribute(resOut)}/layout/${fragmentLayout}.xml&quot; /&gt;
+
+&lt;instantiate from=&quot;root/src/app_package/Fragment.java.ftl&quot;
+    to=&quot;${escapeXmlAttribute(srcOut)}/${fragmentClass}.java&quot; /&gt;
+
+ &lt;open file=&quot;${escapeXmlAttribute(resOut)}/layout/${fragmentLayout}.xml&quot; /&gt;
+
+ &lt;open file=&quot;${escapeXmlAttribute(srcOut)}/${fragmentClass}.java&quot; /&gt;
+
+&lt;#if generateKotlin&gt;
+&lt;instantiate from=&quot;root/src/app_package/SimpleActivity.kt.ftl&quot;
+               to=&quot;${escapeXmlAttribute(srcOut)}/${activityClass}.kt&quot; /&gt;
+&lt;open file=&quot;${escapeXmlAttribute(srcOut)}/${activityClass}.kt&quot; /&gt;
+&lt;#else&gt;
+&lt;instantiate from=&quot;root/src/app_package/SimpleActivity.java.ftl&quot;
+               to=&quot;${escapeXmlAttribute(srcOut)}/${activityClass}.java&quot; /&gt;
+&lt;open file=&quot;${escapeXmlAttribute(srcOut)}/${activityClass}.java&quot; /&gt;
+&lt;/#if&gt;
+</code></pre><p>  </p>
+<h4 id="第五步-准备测试模板"><a href="#第五步-准备测试模板" class="headerlink" title="第五步 准备测试模板"></a>第五步 准备测试模板</h4><p>下面我们来重启一下studio验证一下新写的模板吧。<br><img src="\images\doc\template\template12.png" alt=""><br><img src="\images\doc\template\template13.png" alt=""><br><img src="\images\doc\template\template14.png" alt=""><br>验证成功，这样我们就完成了一个最简单的自定义模板，这里我只是简单的想大家介绍一下，有兴趣的同学可以自行尝试一下自定义MVP模板，MVVM模板等。。。道理都是一样的，关键在于新增的文件别忘了在recipe.xml.ftl中进行配置。</p>
+
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2017/04/21/自定义Viiew绘制顺序/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2016/12/27/教你偷懒之APT/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-Template"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android Template</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#template-xml"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">template.xml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#global-xml-ftl"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">global.xml.ftl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SimpleActivity-java-ftl"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">SimpleActivity.java.ftl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#recipe-xml-ftl"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">recipe.xml.ftl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#customActivityTemplate"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">customActivityTemplate</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第一步-准备模板所需文件"><span class="post-toc-number">1.0.5.1.</span> <span class="post-toc-text">第一步 准备模板所需文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第二步-配置模板参数"><span class="post-toc-number">1.0.5.2.</span> <span class="post-toc-text">第二步 配置模板参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第三步-修改模板"><span class="post-toc-number">1.0.5.3.</span> <span class="post-toc-text">第三步 修改模板</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第四步-修改recipe-xml-ftl"><span class="post-toc-number">1.0.5.4.</span> <span class="post-toc-text">第四步 修改recipe.xml.ftl</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第五步-准备测试模板"><span class="post-toc-number">1.0.5.5.</span> <span class="post-toc-text">第五步 准备测试模板</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  Zxhua Z</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>
