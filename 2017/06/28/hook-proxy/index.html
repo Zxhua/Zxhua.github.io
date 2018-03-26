@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>Zxhua Z</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/headerBg/headerBg_whiteHuzi.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header/header_Ais.jpg" ondragstart="return false;"></div>
+    <p>ZxhuaDr</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/Zxhua" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/07/">July 2017<span class="archive-count">2</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/06/">June 2017<span class="archive-count">4</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/05/">May 2017<span class="archive-count">14</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">1</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2016/05/">May 2016<span class="archive-count">1</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/hook/">hook<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/view/">view<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title" style="background-color:#26A69A;background-image:url(/images/doc/proxy_one.jpg)" >
+  <h2>Hook之代理</h2>
+    
+  <p>作者:ZxhuaDr &nbsp&nbsp 发布于:<time datetime="2017-06-28T01:47:30.000Z">
+          2017-06-28
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p>Hook主要涉及到两个知识点“代理”和“反射”,只要对这两个知识点有一定的了解，并且准确找到hook点，那么Hook系统Api将很容易实现。接下来我们将简单介绍一下代理模式与反射，最后通过实战完成Hook系统ASM服务。</p>
+</blockquote>
+<h2 id="1-代理模式"><a href="#1-代理模式" class="headerlink" title="1.代理模式"></a>1.代理模式</h2><blockquote>
+<p>代理是一种设计模式，提供了对目标对象另外的一种访问方式。实现在不改动目标对象代码的基础上，增强额外的功能。Android中常用的代理方式有静态代理与动态代理两种。下面我们将分别介绍一下两种代理方式。</p>
+</blockquote>
+<h3 id="1-1静态代理"><a href="#1-1静态代理" class="headerlink" title="1.1静态代理"></a>1.1静态代理</h3><p>  静态代理再使用时需要通过定义接口或者父类，使被代理对象与代理对象一起实现接口或者继承相同父类。<br>下面举个案例来解释一下：<br>模拟一个数据接收动作，定义接口IReceive然后定义目标类ReceiveImpl.java.现需要在接收数据之前或者之后增加操作。在不更改ReceiveImpl.java的基础上，如果通过静态代理实现则需要代理对象(ReceiveImplProxy.java)也实现IReceive接口.调用时通过调用代理对象的方法来调用目标对象，在调用目标对象方法之前或之后增加所需相关实现。<br>代码示例：<br>接口：  IReceive.java</p>
+<p><pre><code><br> public interface IReceive{<br>      void onReceive(String o);<br>}<br></code></pre><br>目标对象：ReceiveImpl.java</p>
+<p><pre><code><br> public class  ReceiveImpl implement IReceive{  </code></pre></p>
+<pre><code>public void onReceive（String o）{
+    System.out.println(&quot;接受数据&quot;+o);
+} 
+</code></pre><p>}<br><br>代理对象：ReceiveImplProxy.java</p>
+<p><pre><code><br> public class  ReceiveImplProxy implement IReceive{  </code></pre></p>
+<pre><code>private IReceive iReceive;
+
+public ReceiveImplProxy(IReceive iReceive){
+    this.iReceive = iReceive;
+}
+
+public void onReceive（String o）{
+    System.out.println(&quot;数据校验&quot;);
+    iReceive.onReceive(o);
+    System.out.println(&quot;数据接收完毕&quot;);
+} 
+</code></pre><p>}<br><br>运行：Test.java</p>
+<p><pre><code><br>public class Test {<br>    public static void main(String[] args) {<br>        ReceiveImplProxy proxy = new ReceiveImplProxy(new ReceiveImpl());<br>        proxy.onReceive(“data”);<br>    }<br>}<br></code></pre><br>通过上述的示例代码，静态代理满足了我们不修改目标对像的前提下扩展功能的需求。但是其缺点也是比较明显，静态代理需要目标对象同代理对象需要实现同一个接口或继承同一个父类，增加方法时需要同时维护两个类，工作量增加。而动态代理则完全没有这方面的顾虑。</p>
+<h3 id="1-2动态代理"><a href="#1-2动态代理" class="headerlink" title="1.2动态代理"></a>1.2动态代理</h3><p>动态代理又称JDK代理或者接口代理，通过java.lang.reflect 包下的 Proxy类实现。Proxy所包含的主要方法请看下图：<br><img src="\images\doc\proxy.png" alt="">   </p>
+<p>通过Proxy实现代理只需要调用newProxyInstance()即可，该方法完整参数如下：   </p>
+<p><pre><code><br>Proxy.newProxyInstance(ClassLoader classLoader,Class&lt;?&gt;…interface,InvocationHandler h);</code></pre></p>
+<p>ClassLoader classLoader：指定当前目标对象的类加载器<br>Class&lt;?&gt;[] interfaces:一个Interface对象的数组，表示的是我将要给我需要代理的对象提供一组什么接口，如果我提供了一组接口给它，那么这个代理对象就宣称实现了该接口(多态)，这样我就能调用这组接口中的方法了<br>InvocationHandler h:这个接口内部只有一个方法invoke(Object proxy,Method method,Object[] args).每一个动态代理类都必须实现这个接口，并且每个代理类的实例都关联了一个handler，当我们通过代理对象调用一个方法的时候，这个方法的调用就会被转发为由InvocationHandler这个接口的invoke进行调用。<br><br>下面我来看一下InvocationHandler的invoke这个方法：</p>
+<p><pre><code><br>Object invoke(Object proxy,Method method,Object[] args);</code></pre></p>
+<p>proxy ：指代我们代理的目标对象<br>method：指代我们代理的目标对象的某个方法的Method对象<br>args: 指代我们调用目标对象某个方法时接受的参数<br><br>接下来我们通过动态代理的方式，实现上述代码。<br>定义handler ： ReceiveProxyHandler.java</p>
+<p><pre><code><br>public class ReceiveProxyHandler implment InvocationHandler{<br>    //我们要代理的目标对象<br>    private Object target；</code></pre></p>
+<pre><code>public ReceiveProxyHandler（Object target）{
+    this.target = target;
+}
+
+//在代理调用目标对象的方法时，会自动跳转到代理对象的handler对象的invoke方法。
+@Override
+public Object invoke(Object obj,Method method,Object[] args) throws Throwable{
+    // 在代理前 添加操作
+    System.out.println(&quot;校验数据&quot;);
+    // 调用目标对象的方法
+    Object result = method.invoke(target,args);
+    // 再调用目标方法之后 添加操作
+    System.out.println(&quot;接收完毕&quot;);
+
+    return result;
+}
+</code></pre><p>}<br><br>我们可以看到，代理对象调用目标对象的方法是通过InvocationHandler的invoke方法实现的，并且通过invoke我们也可以做到在该方法前添加其他操作甚至替换方法的参数args..<br>测试：Test.java</p>
+<p><pre><code><br>public class Test{<br>     public static void main(String[] args) {<br>        //获取目标对象<br>        ReceiveImpl realTarget = new ReceiveImpl();<br>        //获取代理对象<br>        IReceive receiveProxy= (IReceive)Proxy.newProxyInstance(<br>                    realTarget.getClass().getClassLoader(),//获取目标对象的类加载器<br>                    newClass&lt;?&gt;[]{IReceive.class},//代理对象需要实现的接口<br>                    new ReceiveProxyHandler(realTarget)//关联handler<br>            );</code></pre></p>
+<pre><code>    receiveProxy.onReceive(&quot;data&quot;);
+}
+</code></pre><p>}<br><br>这样我们对代理模式的应用就有了一定的了解，下面一篇文章我们将了解一下反射。</p>
+
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2017/07/10/教你偷懒之APT/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2017/06/03/设计模式笔记(十九)适配器设计模式/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-代理模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.代理模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1静态代理"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1静态代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2动态代理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2动态代理</span></a></li></ol></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  Zxhua Z</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>

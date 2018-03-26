@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>Zxhua Z</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/headerBg/headerBg_whiteHuzi.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header/header_Ais.jpg" ondragstart="return false;"></div>
+    <p>ZxhuaDr</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/Zxhua" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/07/">July 2017<span class="archive-count">2</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/06/">June 2017<span class="archive-count">4</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/05/">May 2017<span class="archive-count">14</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">1</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2016/05/">May 2016<span class="archive-count">1</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/hook/">hook<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/view/">view<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-9.png)" >
+  <h2>设计模式笔记(一)概述</h2>
+    
+  <p>作者:ZxhuaDr &nbsp&nbsp 发布于:<time datetime="2017-05-11T08:57:01.000Z">
+          2017-05-11
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>20世纪70年代,Christophr Alexander研究为了解决同一个问题而设计出不同的建筑结构.发现那些高质量设计中的<code>相似性</code>.用模式语言来指这种<code>相似性</code>.<br>    -A Pattern Language:Towns,Buildings,Construction(牛津大学出版社,1977年)<br>    -永久的建筑风格(牛津大学出版社,1979年)<br>由Alexander发现并记录的这些模式仅仅是涉及诸如建筑物,花园和道路之类的建筑学方面的模式.20世纪90年代逐渐的被软件工程所整合使用,由GoF归纳发表了23种在软件开发中使用频率较高的设计模式.</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>设计模式是指,<code>在某种特定的情况下,采取已经实践证明的最佳解决方案来实现需求.</code><br>程序的设计和实现来源于生活,而在特定的情况下,采取已知、最佳的方案,能更高效的实现需求.在GoF总结的23种设计模式中,包含5种创建型设计模式,7种结构型设计模式和11种行为型设计模式,根据某种设计模式的作用,又可分为类模式和对象模式<br><img src="https://raw.githubusercontent.com/charlesandroid/charlesandroid.github.io/master/img/设计模式.png" alt=""><br>设计模式是前人总结的经验,要想设计出高内聚、低耦合的程序,就要好好学习设计模式,并翻阅遵从这些设计模式设计的程序案例</p>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p>设计模式的总结,是按照一定的原则,主要分为以下7个原则  </p>
+<h4 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h4><p>一段代码,一个类,一个模块只负责自己领域的工作,尽可能不参与其他领域的工作</p>
+<h4 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h4><p>对外提供可修改的方法,对内避免代码修改,简称对外开放,对内关闭</p>
+<h4 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h4><p>一个可以用基类(父类)表示的地方,一定可以用衍生类(子类)来表示,并且替换后原程序不受到影响</p>
+<h4 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h4><p>基类(父类)不应该依赖衍生类(子类),抽象模块不应依赖具体实现</p>
+<h4 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h4><p>一系列多个方法的定义,不应该定义在同一接口中,针对不同功能,编写不同接口</p>
+<h4 id="合成复用原则"><a href="#合成复用原则" class="headerlink" title="合成复用原则"></a>合成复用原则</h4><p>使用组合,对象包含对象的关系,尽可能的少使用继承关系</p>
+<h4 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h4><p>又叫最少知道原则,意为一个对象对另一个对象尽可能少的了解  </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>之所以每一种设计原则的概念解释,都用了尽可能和应该这样的词来描述,是因为设计模式虽然是建立在这些原则的基础之上总结出来的,但不代表每一种设计模式都绝对遵循这些设计原则,因此设计模式是在设计原则之上,合理的取舍总结出来的</p>
+
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2017/05/12/设计模式笔记(二)单一职责原则/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2017/04/21/自定义Viiew绘制顺序/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起源"><span class="post-toc-number">1.</span> <span class="post-toc-text">起源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概念"><span class="post-toc-number">2.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原则"><span class="post-toc-number">3.</span> <span class="post-toc-text">原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单一职责原则"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">单一职责原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开闭原则"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">开闭原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#里氏代换原则"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">里氏代换原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#依赖倒转原则"><span class="post-toc-number">3.0.4.</span> <span class="post-toc-text">依赖倒转原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接口隔离原则"><span class="post-toc-number">3.0.5.</span> <span class="post-toc-text">接口隔离原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#合成复用原则"><span class="post-toc-number">3.0.6.</span> <span class="post-toc-text">合成复用原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#迪米特法则"><span class="post-toc-number">3.0.7.</span> <span class="post-toc-text">迪米特法则</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  Zxhua Z</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>

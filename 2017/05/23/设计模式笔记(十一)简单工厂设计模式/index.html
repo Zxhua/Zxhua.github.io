@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>Zxhua Z</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="shortcut icon" href="/source/favicon.ico">
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/headerBg/headerBg_whiteHuzi.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header/header_Ais.jpg" ondragstart="return false;"></div>
+    <p>ZxhuaDr</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/Zxhua" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/07/">July 2017<span class="archive-count">2</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/06/">June 2017<span class="archive-count">4</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/05/">May 2017<span class="archive-count">14</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/04/">April 2017<span class="archive-count">1</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2016/05/">May 2016<span class="archive-count">1</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/hook/">hook<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/view/">view<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-15.png)" >
+  <h2>设计模式笔记(十一)简单工厂设计模式</h2>
+    
+  <p>作者:ZxhuaDr &nbsp&nbsp 发布于:<time datetime="2017-05-23T08:57:05.000Z">
+          2017-05-23
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p>简单工厂模式又叫做静态工厂方法（Static Factory Method）模式，但不属于23种GOF设计模式之一。简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式家族中最简单实用的模式，可以理解为是不同工厂模式的一个特殊实现。  </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>提供一个根据传入参数来分别创建、返回不同对象的方法,这些对象通常继承/实现同一个父类/接口,或是类型相同,属性不同.</p>
+<h3 id="模式成员"><a href="#模式成员" class="headerlink" title="模式成员"></a>模式成员</h3><p><code>Factory</code> :工厂类,负责创建所需产品对象<br><code>Product</code> :产品基类,可以是抽象类,可以是接口<br><code>ConcreteProduct</code> : <code>Product</code>的实现类<br><img src="https://raw.githubusercontent.com/charlesandroid/charlesandroid.github.io/master/img/StaticFactory.png" alt=""></p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>把同一类型的类创建<code>new Product()</code>,封装到同一个类当中,简化代码.<br>原代码:</p>
+<pre><code>Product a = new ProductA();
+Product b = new ProductB();
+Product c = new ProductC();
+Product d = new ProductD();
+Product e = new ProductE();
+</code></pre><p>使用简单工厂:  </p>
+<pre><code>Product a = Factory.createProduct(0); 
+Product b = Factory.createProduct(1); 
+Product c = Factory.createProduct(2); 
+Product d = Factory.createProduct(3); 
+Product e = Factory.createProduct(4); 
+</code></pre><p>参数也可以是<code>String</code>类型,另一种方式是使用不同的方法名称来创建不同的对象</p>
+<pre><code>Product a = Factory.createProductA(); 
+Product b = Factory.createProductB(); 
+Product c = Factory.createProductC(); 
+Product d = Factory.createProductD(); 
+Product e = Factory.createProductE(); 
+</code></pre><p><strong>优点:</strong> 代码统一,对象初始化的在同一个地方,便于查找和修改.<br><strong>缺点:</strong> 拓展性差,添加新类型需要修改<code>Factory</code>.</p>
+<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><h4 id="1-Product-Factory"><a href="#1-Product-Factory" class="headerlink" title="1.Product$Factory"></a>1.Product$Factory</h4><p>根据传入不同参数创建不同类型对象</p>
+<pre><code>interface Product{
+    float getPrice();
+    class Factory{
+        static final String PRODUCT_A = &quot;A&quot;;
+        static final String PRODUCT_B = &quot;B&quot;;
+        static final String PRODUCT_C = &quot;C&quot;;
+        static final String PRODUCT_D = &quot;D&quot;;
+        static final String PRODUCT_E = &quot;E&quot;;
+        static Product createProduct(String type){
+            switch (type){
+                case PRODUCT_A:
+                    return new ProductA();
+                case PRODUCT_B:
+                    return new ProductB();
+                case PRODUCT_C:
+                    return new ProductC();
+                   case PRODUCT_D:
+                    return new ProductD();
+                case PRODUCT_E:
+                    return new ProductE();
+                default:
+                    return null;
+            }            
+        }
+    }
+}
+</code></pre><h4 id="2-com-android-documentsui-services-Job-Factory"><a href="#2-com-android-documentsui-services-Job-Factory" class="headerlink" title="2.com.android.documentsui.services.Job$Factory"></a>2.com.android.documentsui.services.Job$Factory</h4><p>根据不同方法名称创建不同对象</p>
+<pre><code>static class Factory {
+    static final Factory instance = new Factory();
+
+    Job createCopy(...) {
+        ...            
+        return new CopyJob(...);
+    }
+
+    Job createMove(...) {
+        ...
+        return new MoveJob(...);
+    }
+
+    Job createDelete(...) {
+        ...
+        return new DeleteJob(...);
+    }
+}
+</code></pre><h4 id="3-android-text-Editable-Factory"><a href="#3-android-text-Editable-Factory" class="headerlink" title="3.android.text.Editable$Factory"></a>3.android.text.Editable$Factory</h4><p>根据传入不同参数,创建相同对象,但对象初始化属性不同,这里还结合了饿汉单例模式</p>
+<pre><code>    public static class Factory {
+    private static Editable.Factory sInstance = new Editable.Factory();
+
+    public static Editable.Factory getInstance() {
+        return sInstance;
+    }
+
+    public Editable newEditable(CharSequence source) {
+        return new SpannableStringBuilder(source);
+    }
+}
+</code></pre>
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/2017/05/24/设计模式笔记(十二)工厂方法设计模式/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/2017/05/22/设计模式笔记(十)单例设计模式/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What"><span class="post-toc-number">1.</span> <span class="post-toc-text">What</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模式成员"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">模式成员</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why"><span class="post-toc-number">2.</span> <span class="post-toc-text">Why</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Where"><span class="post-toc-number">3.</span> <span class="post-toc-text">Where</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-Product-Factory"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">1.Product$Factory</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-com-android-documentsui-services-Job-Factory"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">2.com.android.documentsui.services.Job$Factory</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-android-text-Editable-Factory"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">3.android.text.Editable$Factory</span></a></li></ol></li></ol></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  Zxhua Z</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>
