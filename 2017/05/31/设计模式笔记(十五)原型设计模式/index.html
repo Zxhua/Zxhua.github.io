@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="ZxhuaDr"><title>设计模式笔记(十五)原型设计模式 · Zxhua Z</title><meta name="description" content="What原型模式是创建型模式的一种,其特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
+模式成员Prototype :抽象原型类,克隆方法的定义接口/类ConcretePrototype :具体原型类,实现Prototyp"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/header.jpg" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Zxhua Z</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Blog</span></a><a href="https://github.com/Zxhua"> Zxhua</a><span>&</span><a href="https://github.com/Zxhua"> Zone</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>设计模式笔记(十五)原型设计模式</a></h3></div><div class="post-content"><h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p>原型模式是创建型模式的一种,其特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。</p>
+<h3 id="模式成员"><a href="#模式成员" class="headerlink" title="模式成员"></a>模式成员</h3><p><code>Prototype</code> :抽象原型类,克隆方法的定义接口/类<br><code>ConcretePrototype</code> :具体原型类,实现<code>Prototype</code>   </p>
+<p> <img src="https://raw.githubusercontent.com/charlesandroid/charlesandroid.github.io/master/img/Prototype.png" alt=""></p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>原型模式多用于创建复杂的或者耗时的实例，因为这种情况下，复制一个已经存在的实例使程序运行更高效；或者创建值相等，只是命名不一样的同类数据。<br><strong>优点</strong>:效率高,减少重新创建一个复杂对象的耗时<br><strong>缺点</strong>:扩展性差,<code>clone</code>方法扩展时必须修改原代码,多层对象嵌套,每个类都要实现<code>Prototype</code></p>
+<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><h3 id="java-lang-Object"><a href="#java-lang-Object" class="headerlink" title="java.lang.Object"></a>java.lang.Object</h3><pre><code>protected Object clone() throws CloneNotSupportedException {
+    if (!(this instanceof Cloneable)) {
+        throw new CloneNotSupportedException(...);       
+    }
+
+    return internalClone();
+}
+private native Object internalClone();
+</code></pre><p>虽然<code>Object</code>为超类,但要使用<code>clone</code>方法,需要实现<code>Cloneable</code>接口,否则抛出异常.<code>Cloneable</code>为空接口,做标记用.</p>
+<h4 id="java-lang-Cloneable"><a href="#java-lang-Cloneable" class="headerlink" title="java.lang.Cloneable"></a>java.lang.Cloneable</h4><pre><code>public interface Cloneable {
+}
+</code></pre><h4 id="android-util-IntArray"><a href="#android-util-IntArray" class="headerlink" title="android.util.IntArray"></a>android.util.IntArray</h4><pre><code>public class IntArray implements Cloneable {
+    private int[] mValues;
+    ...
+    @Override
+    public IntArray clone() throws CloneNotSupportedException {
+        final IntArray clone = (IntArray) super.clone();
+        clone.mValues = mValues.clone();
+        return clone;
+    }
+}
+</code></pre><p><code>IntArray</code>的<code>clone</code>方法实现克隆本身,并且克隆成员<code>mValues</code>.</p>
+<h4 id="android-content-Intent"><a href="#android-content-Intent" class="headerlink" title="android.content.Intent"></a>android.content.Intent</h4><pre><code>@Override
+public Object clone() {
+    return new Intent(this);
+}
+</code></pre><p><code>Intent</code>的<code>clone</code>方法没有调用父类的克隆,而是通过<code>new</code>关键字来创建的,并把自己作为参数传入新创建的<code>Intent</code></p>
+<pre><code>public Intent(Intent o) {
+    this.mAction = o.mAction;
+    this.mData = o.mData;
+    this.mType = o.mType;
+    this.mPackage = o.mPackage;
+    this.mComponent = o.mComponent;
+    this.mFlags = o.mFlags;
+    this.mContentUserHint = o.mContentUserHint;
+    if (o.mCategories != null) {
+        this.mCategories = new ArraySet&lt;String&gt;(o.mCategories);
+    }
+    if (o.mExtras != null) {
+        this.mExtras = new Bundle(o.mExtras);
+    }
+    if (o.mSourceBounds != null) {
+        this.mSourceBounds = new Rect(o.mSourceBounds);
+    }
+    if (o.mSelector != null) {
+        this.mSelector = new Intent(o.mSelector);
+    }
+    if (o.mClipData != null) {
+        this.mClipData = new ClipData(o.mClipData);
+    }
+}
+</code></pre></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-05-31</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,http://yoursite.com/2017/05/31/设计模式笔记(十五)原型设计模式/,Zxhua Z,设计模式笔记(十五)原型设计模式,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2017/06/01/设计模式笔记(十六)建造者设计模式/" title="设计模式笔记(十六)建造者设计模式">Post Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2017/05/26/设计模式笔记(十四)工厂设计模式总结/" title="设计模式笔记(十四)工厂设计模式总结">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
